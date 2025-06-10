@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font declarations */
+@font-face {
+  font-family: 'DraftingMono';
+  src: url('./assets/DraftingMono/woff2/DraftingMono-Regular.woff2') format('woff2'),
+       url('./assets/DraftingMono/ttf/DraftingMono-Regular.ttf') format('truetype'),
+       url('./assets/DraftingMono/otf/DraftingMono-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base styles */
+body {
+  font-family: 'DraftingMono', monospace;
+  /* font-family: 'Architects Daughter', cursive; */
+  /* font-family: 'Inter', sans-serif; */
+}
+
+/* Utility class for Architects Daughter font */
+.font-architects {
+  font-family: 'Architects Daughter', cursive;
+}
+
+/* Light mode (default) */
+body {
+  @apply bg-light-background text-light-text;
+}
+
+/* Dark mode */
+.dark body {
+  @apply bg-dark-background text-dark-accent;
+}
