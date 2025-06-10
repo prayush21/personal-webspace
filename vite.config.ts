@@ -7,5 +7,5 @@ export default defineConfig({
   css: {
     postcss: "./postcss.config.cjs",
   },
-  base: "/portfolio-site/",
+  base: "/personal-webspace/",
 });
