@@ -73,7 +73,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
           open ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
         } md:hidden z-20 shadow-lg rounded-xl backdrop-blur-sm`}
       >
-        <div className="flex flex-col rounded-xl  min-h-screen justify-between pt-4 pb-10 px-4">
+        <div className="flex flex-col justify-normal gap-4 rounded-xl min-h-screen  pt-4 pb-10 px-4">
           {/* Top section with Logo */}
           <div className="flex items-start justify-between">
             <button
@@ -82,10 +82,22 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
             >
               <XMarkIcon className="h-6 w-6 text-lightTextPrimary dark:text-darkTextPrimary" />
             </button>
-            <img src={logoName} alt="Prayush Dave" className="h-12 w-auto" />
+            <div className="flex gap-1">
+              <button
+                onClick={onToggleTheme}
+                className="p-2 rounded-full bg-lightBackground/80 dark:bg-darkBackground/80 hover:bg-lightBackground/90 dark:hover:bg-darkBackground/90 transition-colors duration-200"
+              >
+                {darkMode ? (
+                  <SunIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
+                ) : (
+                  <MoonIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
+                )}
+              </button>
+              <img src={logoName} alt="Prayush Dave" className="h-12 w-auto" />
+            </div>
           </div>
 
-          {/* Bottom section with Navigation Links */}
+          {/* Main Section with Navigation Links in the Middle for Mobile Screens */}
           <div className="flex items-end justify-between">
             <ul className="flex flex-col space-y-4 text-lightTextSecondary dark:text-darkTextSecondary">
               {navLinks.map((link) => (
@@ -98,16 +110,6 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
                 </li>
               ))}
             </ul>
-            <button
-              onClick={onToggleTheme}
-              className="p-2 rounded-full bg-lightBackground/80 dark:bg-darkBackground/80 hover:bg-lightBackground/90 dark:hover:bg-darkBackground/90 transition-colors duration-200"
-            >
-              {darkMode ? (
-                <SunIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
-              ) : (
-                <MoonIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
-              )}
-            </button>
           </div>
         </div>
       </div>
