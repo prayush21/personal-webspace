@@ -19,7 +19,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
 
   return (
     <header
-      className={`fixed my-2 w-11/12 top-4 left-1/2 -translate-x-1/2 z-10 backdrop-blur border-t-2 border-t-neutral-100 rounded-xl bg-light-background/0 dark:bg-darkBackground/0 transition-all duration-300 ${
+      className={`fixed my-2 w-11/12 top-4 left-1/2 -translate-x-1/2 z-10 backdrop-blur border-t-2 border-t-neutral-100 border rounded-xl bg-light-background/0 dark:bg-darkBackground/0 transition-all duration-300 ${
         open
           ? " border-b-2 border-b-neutral-500 shadow-md"
           : "shadow-neutral-500 shadow-md"
