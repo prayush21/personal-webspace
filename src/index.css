@@ -34,3 +34,30 @@ body {
 .dark body {
   @apply bg-dark-background text-dark-accent;
 }
+
+/* switchable theme classes on <html> or <body> */
+.theme-light {
+  --accent: #1C77DB;
+  --hover:  #94BFE8;
+}
+.theme-dark {
+  --accent: #B88157;
+  --hover:  #5E3121;
+}
+
+/* reusable icon utility */
+.icon {
+  width: 1.5rem;           /* 24px */
+  height: 1.5rem;          /* 24px */
+  color: var(--accent);    /* applies to fill & stroke via currentColor */
+  transition: color .2s ease-in-out;
+  vertical-align: middle;  /* align with text if needed */
+}
+.icon:hover {
+  color: var(--hover);
+}
+/* ensure embedded shapes follow currentColor */
+.icon use {
+  fill:    currentColor;
+  stroke:  currentColor;
+}
