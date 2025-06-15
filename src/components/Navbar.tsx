@@ -66,11 +66,24 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
             <Bars3Icon className="h-6 w-6 text-light-textPrimary dark:text-dark-textPrimary" />
           )}
         </button>
-        <img
-          src={logoName}
-          alt="Prayush Dave"
-          className="md:hidden h-12 w-auto"
-        />
+        <div className="flex gap-2">
+          <button
+            onClick={onToggleTheme}
+            className="p-2 rounded-full bg-lightBackground/80 dark:bg-darkBackground/80 hover:bg-lightBackground/90 dark:hover:bg-darkBackground/90 transition-colors duration-200"
+          >
+            {darkMode ? (
+              <SunIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
+            ) : (
+              <MoonIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
+            )}
+          </button>
+
+          <img
+            src={logoName}
+            alt="Prayush Dave"
+            className="md:hidden h-12 w-auto"
+          />
+        </div>
       </nav>
 
       {/* Mobile Drawer */}
