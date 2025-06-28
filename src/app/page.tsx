@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import {
   BackgroundGrid,
@@ -5,12 +7,9 @@ import {
   Hero,
   DynamicTicker,
   //ThemeTransition,
-} from "./components";
-// import doodleLight from "./assets/doodle-light.svg";
-// import doodleDark from "./assets/doodle-dark.svg";
-import spacePlane from "./assets/space-plane.svg";
+} from "@/components";
 
-const App: React.FC = () => {
+const HomePage: React.FC = () => {
   // simple theme toggle state; apply 'dark' class on <html>
   const [darkMode, setDarkMode] = useState<boolean>(false);
   useEffect(() => {
@@ -33,12 +32,12 @@ const App: React.FC = () => {
         <div className="mb-8 flex items-center justify-between">
           <DynamicTicker />
           {/* <img
-            src={darkMode ? doodleDark : doodleLight}
+            src={darkMode ? "/assets/doodle-dark.svg" : "/assets/doodle-light.svg"}
             alt="Decorative doodle"
             className="hidden lg:block absolute right-10 w-auto"
           /> */}
           <img
-            src={spacePlane}
+            src="/assets/space-plane.svg"
             alt="Decorative doodle"
             className="h-72 hidden lg:block absolute bottom-5 right-32 w-auto border-white shad"
           />
@@ -48,4 +47,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default HomePage;
