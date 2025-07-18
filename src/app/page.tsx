@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import Image from "next/image";
 import {
   BackgroundGrid,
   Navbar,
@@ -36,9 +37,11 @@ const HomePage: React.FC = () => {
             alt="Decorative doodle"
             className="hidden lg:block absolute right-10 w-auto"
           /> */}
-          <img
+          <Image
             src="/assets/space-plane.svg"
             alt="Decorative doodle"
+            width={288}
+            height={288}
             className="h-72 hidden lg:block absolute bottom-5 right-32 w-auto border-white shad"
           />
         </div>

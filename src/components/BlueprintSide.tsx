@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const BlueprintSide: React.FC = () => (
   <div
@@ -9,9 +10,11 @@ const BlueprintSide: React.FC = () => (
       boxShadow: "0 4px 24px rgba(0,0,0,0.2)",
     }}
   >
-    <img
+    <Image
       src="/assets/space-plane.svg"
       alt="Blueprint Top View"
+      width={350}
+      height={500}
       className="w-full h-auto rounded-lg"
       style={{
         objectFit: "cover",

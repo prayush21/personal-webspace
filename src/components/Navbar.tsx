@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   SunIcon,
   MoonIcon,
@@ -28,10 +29,13 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
         {/* Desktop Logo/Name and Theme Toggle */}
         <div className="hidden md:flex items-center space-x-4">
           <div className="text-xl font-bold text-lightTextPrimary dark:text-darkTextPrimary">
-            <img
+            <Image
               src="/assets/logo-name.svg"
               alt="Prayush Dave"
+              width={160}
+              height={64}
               className="h-16 w-auto"
+              priority
             />
           </div>
           {/* <button
@@ -81,10 +85,13 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
             )}
           </button>
 
-          <img
+          <Image
             src="/assets/logo-name.svg"
             alt="Prayush Dave"
+            width={120}
+            height={48}
             className="md:hidden h-12 w-auto"
+            priority
           />
         </div>
       </nav>
