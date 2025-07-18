@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { getAssetPath } from "@/utils/paths";
 
 const BlueprintSide: React.FC = () => (
   <div
@@ -11,7 +12,7 @@ const BlueprintSide: React.FC = () => (
     }}
   >
     <Image
-      src="/assets/space-plane.svg"
+      src={getAssetPath("/assets/space-plane.svg")}
       alt="Blueprint Top View"
       width={350}
       height={500}

@@ -9,6 +9,7 @@ import {
   DynamicTicker,
   //ThemeTransition,
 } from "@/components";
+import { getAssetPath } from "@/utils/paths";
 
 const HomePage: React.FC = () => {
   // simple theme toggle state; apply 'dark' class on <html>
@@ -38,7 +39,7 @@ const HomePage: React.FC = () => {
             className="hidden lg:block absolute right-10 w-auto"
           /> */}
           <Image
-            src="/assets/space-plane.svg"
+            src={getAssetPath("/assets/space-plane.svg")}
             alt="Decorative doodle"
             width={288}
             height={288}

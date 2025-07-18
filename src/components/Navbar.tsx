@@ -6,6 +6,7 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
+import { getAssetPath } from "@/utils/paths";
 
 interface NavbarProps {
   darkMode: boolean;
@@ -30,7 +31,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
         <div className="hidden md:flex items-center space-x-4">
           <div className="text-xl font-bold text-lightTextPrimary dark:text-darkTextPrimary">
             <Image
-              src="/assets/logo-name.svg"
+              src={getAssetPath("/assets/logo-name.svg")}
               alt="Prayush Dave"
               width={160}
               height={64}
@@ -86,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
           </button>
 
           <Image
-            src="/assets/logo-name.svg"
+            src={getAssetPath("/assets/logo-name.svg")}
             alt="Prayush Dave"
             width={120}
             height={48}
