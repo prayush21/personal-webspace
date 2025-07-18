@@ -1,0 +1,7 @@
+/* src/app/library/page.module.css */
+.title {
+    font-size: 3rem;
+    color: white;
+    text-align: center;
+    font-family: var(--font-architects-daughter); /* Example of using a CSS variable from your layout */
+  }

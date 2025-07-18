@@ -1,8 +1,13 @@
+/** @type {import('tailwindcss').Config} */
 const config = {
-  darkMode: "class", // class-based theming
-  content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
+  darkMode: "class",
+  content: ["./src/**/*.{ts,tsx,js,jsx,mdx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["var(--font-drafting-mono)", "monospace"],
+        architects: ["var(--font-architects-daughter)", "cursive"],
+      },
       colors: {
         // Dark theme
         dark: {
@@ -11,7 +16,7 @@ const config = {
           accent: "#B88157",
           hover: "#5E3121",
           border: "#0E1712",
-          grid: "rgba(184, 129, 87, 0.1)", // Using accent color with opacity for grid
+          grid: "rgba(184, 129, 87, 0.1)",
           text: "#FFFFFF",
           textPrimary: "#FFFFFF",
           textSecondary: "#E5E5E5",
@@ -21,7 +26,7 @@ const config = {
           background: "#2377D7",
           accent: "#1C77DB",
           hover: "#94BFE8",
-          grid: "rgba(255, 255, 255, 0.2)", // White with opacity for better visibility
+          grid: "rgba(255, 255, 255, 0.2)",
           text: "#FFFFFF",
           textPrimary: "#FFFFFF",
           textSecondary: "#F0F0F0",
@@ -41,4 +46,4 @@ const config = {
   plugins: [],
 };
 
-module.exports = config;
+export default config;

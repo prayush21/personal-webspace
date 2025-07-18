@@ -5,7 +5,6 @@ import {
   Bars3Icon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import logoName from "./../assets/logo-name.svg";
 
 interface NavbarProps {
   darkMode: boolean;
@@ -19,7 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
 
   return (
     <header
-      className={`fixed my-2 w-11/12 top-4 left-1/2 -translate-x-1/2 z-10 backdrop-blur border-t-2 border-t-neutral-100 border rounded-xl bg-light-background/0 dark:bg-darkBackground/0 transition-all duration-300 ${
+      className={`fixed my-2 w-11/12 top-4 left-1/2 -translate-x-1/2 z-10 backdrop-blur border-t-2 border-t-neutral-100 border rounded-xl bg-light-background/0 dark:bg-dark-background/0 transition-all duration-300 ${
         open
           ? " border-b-2 border-b-neutral-500 shadow-md"
           : "shadow-neutral-500 shadow-md"
@@ -29,9 +28,13 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
         {/* Desktop Logo/Name and Theme Toggle */}
         <div className="hidden md:flex items-center space-x-4">
           <div className="text-xl font-bold text-lightTextPrimary dark:text-darkTextPrimary">
-            <img src={logoName} alt="Prayush Dave" className="h-16 w-auto" />
+            <img
+              src="/assets/logo-name.svg"
+              alt="Prayush Dave"
+              className="h-16 w-auto"
+            />
           </div>
-          <button
+          {/* <button
             onClick={onToggleTheme}
             className="p-2 rounded-full bg-light-background/80 dark:bg-dark-background/80 hover:bg-light-background/90 dark:hover:bg-dark-background/90"
           >
@@ -40,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
             ) : (
               <MoonIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
             )}
-          </button>
+          </button> */}
         </div>
 
         {/* Desktop Links */}
@@ -79,7 +82,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
           </button>
 
           <img
-            src={logoName}
+            src="/assets/logo-name.svg"
             alt="Prayush Dave"
             className="md:hidden h-12 w-auto"
           />
@@ -135,27 +138,27 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
           <div className="flex gap-2 w-full justify-around">
             <a href="https://x.com/prayushdave">
               <svg className="icon">
-                <use xlinkHref="#icon-x" />
+                <use href="#icon-x" />
               </svg>
             </a>
             <a href="https://github.com/prayush21">
               <svg className="icon">
-                <use xlinkHref="#icon-github" />
+                <use href="#icon-github" />
               </svg>
             </a>
             <a href="https://www.instagram.com/prayushdave">
               <svg className="icon">
-                <use xlinkHref="#icon-instagram" />
+                <use href="#icon-instagram" />
               </svg>
             </a>
             <a href="https://www.linkedin.com/in/prayush-dave/">
               <svg className="icon">
-                <use xlinkHref="#icon-linkedin" />
+                <use href="#icon-linkedin" />
               </svg>
             </a>
             <a href="https://www.youtube.com/@prayushdave">
               <svg className="icon">
-                <use xlinkHref="#icon-youtube" />
+                <use href="#icon-youtube" />
               </svg>
             </a>
           </div>
