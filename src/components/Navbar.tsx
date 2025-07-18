@@ -34,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
               className="h-16 w-auto"
             />
           </div>
-          <button
+          {/* <button
             onClick={onToggleTheme}
             className="p-2 rounded-full bg-light-background/80 dark:bg-dark-background/80 hover:bg-light-background/90 dark:hover:bg-dark-background/90"
           >
@@ -43,7 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
             ) : (
               <MoonIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
             )}
-          </button>
+          </button> */}
         </div>
 
         {/* Desktop Links */}
