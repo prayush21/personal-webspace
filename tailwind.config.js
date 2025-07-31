@@ -32,6 +32,9 @@ const config = {
           textSecondary: "#F0F0F0",
         },
       },
+      boxShadow: {
+        blueprintCard: "0 4px 12px rgba(0,0,0,0.25)",
+      },
       keyframes: {
         blink: {
           "0%, 100%": { opacity: "1" },

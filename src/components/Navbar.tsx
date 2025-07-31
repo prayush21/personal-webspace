@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   SunIcon,
   MoonIcon,
@@ -13,7 +14,11 @@ interface NavbarProps {
   onToggleTheme: () => void;
 }
 
-const navLinks = ["About", "Works", "IMDP"];
+const navLinks = [
+  { name: "About", href: "/about" },
+  { name: "Works", href: "/works" },
+  { name: "IMDP", href: "/imdp" },
+];
 
 const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
   const [open, setOpen] = useState(false);
@@ -29,7 +34,10 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
       <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Desktop Logo/Name and Theme Toggle */}
         <div className="hidden md:flex items-center space-x-4">
-          <div className="text-xl font-bold text-lightTextPrimary dark:text-darkTextPrimary">
+          <Link
+            href="/"
+            className="text-xl font-bold text-lightTextPrimary dark:text-darkTextPrimary"
+          >
             <Image
               src={getAssetPath("/assets/logo-name.svg")}
               alt="Prayush Dave"
@@ -38,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
               className="h-16 w-auto"
               priority
             />
-          </div>
+          </Link>
           {/* <button
             onClick={onToggleTheme}
             className="p-2 rounded-full bg-light-background/80 dark:bg-dark-background/80 hover:bg-light-background/90 dark:hover:bg-dark-background/90"
@@ -54,11 +62,13 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
         {/* Desktop Links */}
         <ul className="hidden md:flex space-x-6 text-lightTextSecondary dark:text-darkTextSecondary">
           {navLinks.map((link) => (
-            <li
-              key={link}
-              className="hover:text-lightTextPrimary dark:hover:text-darkTextPrimary cursor-pointer"
-            >
-              {link}
+            <li key={link.name}>
+              <Link
+                href={link.href}
+                className="hover:text-lightTextPrimary dark:hover:text-darkTextPrimary cursor-pointer transition-colors duration-200"
+              >
+                {link.name}
+              </Link>
             </li>
           ))}
         </ul>
@@ -86,14 +96,16 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
             )}
           </button>
 
-          <Image
-            src={getAssetPath("/assets/logo-name.svg")}
-            alt="Prayush Dave"
-            width={120}
-            height={48}
-            className="md:hidden h-12 w-auto"
-            priority
-          />
+          <Link href="/">
+            <Image
+              src={getAssetPath("/assets/logo-name.svg")}
+              alt="Prayush Dave"
+              width={120}
+              height={48}
+              className="md:hidden h-12 w-auto"
+              priority
+            />
+          </Link>
         </div>
       </nav>
 
@@ -133,12 +145,14 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
           <div className="flex items-end justify-between">
             <ul className="flex flex-col space-y-4 text-lightTextSecondary dark:text-darkTextSecondary">
               {navLinks.map((link) => (
-                <li
-                  key={link}
-                  className="hover:text-lightTextPrimary dark:hover:text-darkTextPrimary cursor-pointer text-lg transition-colors duration-200"
-                  onClick={() => setOpen(false)}
-                >
-                  {link}
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="hover:text-lightTextPrimary dark:hover:text-darkTextPrimary cursor-pointer text-lg transition-colors duration-200 block"
+                    onClick={() => setOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
                 </li>
               ))}
             </ul>
