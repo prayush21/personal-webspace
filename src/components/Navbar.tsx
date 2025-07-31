@@ -17,7 +17,7 @@ interface NavbarProps {
 const navLinks = [
   { name: "About", href: "/about" },
   { name: "Works", href: "/works" },
-  { name: "IMDP", href: "/imdp" },
+  // { name: "IMDP", href: "/imdp" },
 ];
 
 const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
