@@ -1,5 +1,5 @@
 import React from "react";
-import NewsletterSignup from "./NewsletterSignup";
+// import NewsletterSignup from "./NewsletterSignup";
 
 const Hero: React.FC = () => (
   <section className="text-start">
