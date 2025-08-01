@@ -25,10 +25,10 @@ const AboutPage: React.FC = () => {
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-light-text dark:text-dark-text mb-4">
             About Me
           </h1>
-          <p className="text-lg sm:text-xl text-light-textSecondary dark:text-dark-textSecondary max-w-2xl mx-auto">
+          {/* <p className="text-lg sm:text-xl text-light-textSecondary dark:text-dark-textSecondary max-w-2xl mx-auto">
             A deeper dive into who I am, what drives me, and how I approach
             building meaningful digital experiences.
-          </p>
+          </p> */}
         </div>
 
         {/* Blog-like Content */}

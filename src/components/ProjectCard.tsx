@@ -8,7 +8,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   return (
-    <div className="group relative bg-[#2863AA] rounded-[4px] shadow-blueprintCard transition-all duration-300 ease-in-out motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-lg">
+    <div className="group relative bg-[#2863AA] dark:bg-[#151914] rounded-[4px] shadow-blueprintCard transition-all duration-300 ease-in-out motion-safe:hover:-translate-y-1 motion-safe:hover:shadow-lg">
       {/* Tape pieces */}
       <div className="absolute -top-2 -left-2 w-12 h-6 pointer-events-none motion-safe:group-hover:rotate-[-3deg] transition-transform duration-300 z-10">
         <Image
