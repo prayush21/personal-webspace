@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Project } from "@/utils/projects";
+import { getAssetPath } from "@/utils/paths";
 
 interface ProjectCardProps {
   project: Project;
@@ -12,7 +13,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       {/* Tape pieces */}
       <div className="absolute -top-2 -left-2 w-12 h-6 pointer-events-none motion-safe:group-hover:rotate-[-3deg] transition-transform duration-300 z-10">
         <Image
-          src="/assets/tape-left-top.svg"
+          src={getAssetPath("/assets/tape-left-top.svg")}
           alt=""
           width={48}
           height={24}
@@ -21,7 +22,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
       </div>
       <div className="absolute -bottom-2 -right-2 w-12 h-6 pointer-events-none motion-safe:group-hover:rotate-[4deg] transition-transform duration-300 z-10">
         <Image
-          src="/assets/tape-right-bottom.svg"
+          src={getAssetPath("/assets/tape-right-bottom.svg")}
           alt=""
           width={48}
           height={24}
