@@ -7,6 +7,7 @@ interface WaitlistSignupProps {
   description?: string;
   placeholder?: string;
   className?: string;
+  onSuccess?: () => void;
 }
 
 const WaitlistSignup: React.FC<WaitlistSignupProps> = ({
@@ -15,6 +16,7 @@ const WaitlistSignup: React.FC<WaitlistSignupProps> = ({
   description,
   placeholder = "Enter your email",
   className = "",
+  onSuccess,
 }) => {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<
@@ -47,6 +49,11 @@ const WaitlistSignup: React.FC<WaitlistSignupProps> = ({
         setStatus("success");
         setMessage("Thanks! You're on the list 🎉");
         // Keep the email in the input field - don't clear it
+
+        // Call onSuccess callback if provided
+        if (onSuccess) {
+          onSuccess();
+        }
       } else {
         throw new Error("Form submission failed");
       }

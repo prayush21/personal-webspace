@@ -1,5 +1,5 @@
 import React from "react";
-import WaitlistSignup from "./WaitlistSignup";
+// import WaitlistSignup from "./WaitlistSignup";
 // import NewsletterSignup from "./NewsletterSignup";
 
 const Hero: React.FC = () => (
@@ -24,7 +24,8 @@ const Hero: React.FC = () => (
       .
     </p>
 
-    {/* Waitlist signup */}
+    {/* Waitlist signup - commented out, now using modal popup */}
+    {/* 
     <div className="mt-8">
       <WaitlistSignup
         variant="hero"
@@ -33,6 +34,7 @@ const Hero: React.FC = () => (
         className="text-left"
       />
     </div>
+    */}
   </section>
 );
 

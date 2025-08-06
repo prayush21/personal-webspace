@@ -20,7 +20,7 @@ export const projects: Project[] = [
   },
   {
     id: "2",
-    title: "Cricket Era Dashboard",
+    title: "Cricket D3 (Dismissal Distribution Dashboard)",
     screenshotSrc: getAssetPath("/assets/cricket-tera-dashboard.png"),
     repoUrl: "https://github.com/prayush21/cricket-tera",
     tags: ["Python", "Data Analysis & Visualization", "PostgresDB"],

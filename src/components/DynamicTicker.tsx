@@ -4,8 +4,10 @@ const interests = [
   "Sports 🎾",
   "Content Creation 📸",
   "Movies 🍿",
-  "UX Engineering 🚀",
+  "Calvin & Hobbes 🐯",
   "Songwriting 🎵",
+  "Astrophysics 🌌",
+  "UX Engineering 🚀",
 ];
 
 const DynamicTicker: React.FC = () => {
