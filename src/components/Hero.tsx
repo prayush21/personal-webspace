@@ -1,4 +1,5 @@
 import React from "react";
+import WaitlistSignup from "./WaitlistSignup";
 // import NewsletterSignup from "./NewsletterSignup";
 
 const Hero: React.FC = () => (
@@ -10,28 +11,28 @@ const Hero: React.FC = () => (
         👋
       </span>
     </h1>
-    <p className="mt-4 text-lg md:text-2xl text-light-text-secondary dark:text-dark-text-secondary max-w-2xl mx-auto">
+    <p className="mt-4 text-lg md:text-2xl text-light-text-secondary dark:text-dark-text-secondary max-w-2xl text-start">
       I am a product engineer.
-      <br /> I love to tinker and prototype stuff, from{" "}
+      <br /> I love to tinker and build stuff, from{" "}
       <strong className="text-light-highlight dark:text-dark-accent">
-        MVPs
+        games
       </strong>{" "}
       to{" "}
       <strong className="text-light-highlight dark:text-dark-accent">
-        Products
+        systems
       </strong>
       .
     </p>
 
-    {/* Newsletter signup */}
-    {/* <div className="mt-8">
-      <NewsletterSignup
+    {/* Waitlist signup */}
+    <div className="mt-8">
+      <WaitlistSignup
         variant="hero"
-        description="🚀 Currently building something new. Get early access when it's ready!"
+        description="🚀 Want to try out a new collaborative word-guessing game? Join the mailing list!"
         placeholder="your.email@example.com"
         className="text-left"
       />
-    </div> */}
+    </div>
   </section>
 );
 

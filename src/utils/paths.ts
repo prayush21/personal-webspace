@@ -1,10 +1,7 @@
 /**
- * Utility function to handle asset paths for GitHub Pages deployment
- * In production, adds the basePath prefix for correct GitHub Pages subdirectory routing
- * In development, returns the path as-is
+ * Utility function to handle asset paths for Netlify deployment
+ * Returns the path as-is since Netlify serves from root domain
  */
 export const getAssetPath = (path: string): string => {
-  const basePath =
-    process.env.NODE_ENV === "production" ? "/personal-webspace" : "";
-  return `${basePath}${path}`;
+  return path;
 };

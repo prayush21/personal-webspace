@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { EnvelopeIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
 
-interface NewsletterSignupProps {
+interface WaitlistSignupProps {
   variant?: "hero" | "page" | "banner";
   title?: string;
   description?: string;
@@ -9,7 +9,7 @@ interface NewsletterSignupProps {
   className?: string;
 }
 
-const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
+const WaitlistSignup: React.FC<WaitlistSignupProps> = ({
   variant = "hero",
   title,
   description,
@@ -33,12 +33,14 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
     setStatus("loading");
 
     try {
-      // TODO: Replace with your actual newsletter service
-      // Examples: ConvertKit, Mailchimp, Substack, etc.
-      const response = await fetch("/api/newsletter", {
+      // Submit to Netlify Forms
+      const response = await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "waitlist",
+          email: email,
+        }).toString(),
       });
 
       if (response.ok) {
@@ -46,11 +48,12 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
         setMessage("Thanks! You're on the list 🎉");
         setEmail("");
       } else {
-        throw new Error("Signup failed");
+        throw new Error("Form submission failed");
       }
     } catch (error) {
       setStatus("error");
       setMessage("Something went wrong. Please try again.");
+      console.error("Form submission error:", error);
     }
   };
 
@@ -68,28 +71,48 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
         </h3>
       )}
       {description && (
-        <p className="text-light-text-secondary dark:text-dark-text-secondary mb-4">
+        <p className="text-light-text-secondary dark:text-dark-text-secondary mb-4 text-lg">
           {description}
         </p>
       )}
 
-      <form onSubmit={handleSubmit} className={variants[variant]}>
+      <form
+        onSubmit={handleSubmit}
+        className={variants[variant]}
+        name="waitlist"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+      >
+        {/* Hidden input for Netlify form detection */}
+        <input type="hidden" name="form-name" value="waitlist" />
+
+        {/* Honeypot field for spam protection */}
+        <div style={{ display: "none" }}>
+          <label>
+            Don&apos;t fill this out if you&apos;re human:{" "}
+            <input name="bot-field" />
+          </label>
+        </div>
+
         <div className="flex-1 relative">
-          <EnvelopeIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-light-text-secondary dark:text-dark-text-secondary" />
+          <EnvelopeIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-neutral-600 dark:text-dark-text-secondary" />
           <input
             type="email"
+            name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder={placeholder}
             disabled={status === "loading" || status === "success"}
-            className="w-full pl-10 pr-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-light-text-primary dark:text-dark-text-primary placeholder-light-text-secondary dark:placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-light-highlight dark:focus:ring-dark-accent focus:border-transparent transition-all duration-200"
+            className="w-full pl-10 pr-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-dark-text-primary placeholder-light-text-secondary dark:placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-light-highlight dark:focus:ring-dark-accent focus:border-transparent transition-all duration-200"
+            required
           />
         </div>
 
         <button
           type="submit"
           disabled={status === "loading" || status === "success"}
-          className="px-6 py-3 bg-light-highlight dark:bg-dark-accent text-white rounded-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-light-highlight dark:focus:ring-dark-accent focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium min-w-[120px] flex items-center justify-center gap-2"
+          className="w-auto px-6 py-3 bg-light-highlight dark:bg-dark-accent text-white rounded-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-light-highlight dark:focus:ring-dark-accent focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium flex items-center justify-start border border-light-highlight dark:border-dark-accent"
         >
           {status === "loading" ? (
             <>
@@ -102,7 +125,7 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
               <span>Joined!</span>
             </>
           ) : (
-            "Join Waitlist"
+            "Join!"
           )}
         </button>
       </form>
@@ -122,4 +145,4 @@ const NewsletterSignup: React.FC<NewsletterSignupProps> = ({
   );
 };
 
-export default NewsletterSignup;
+export default WaitlistSignup;
