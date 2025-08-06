@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { EnvelopeIcon, CheckCircleIcon } from "@heroicons/react/24/outline";
+import { EnvelopeIcon } from "@heroicons/react/24/outline";
 
 interface WaitlistSignupProps {
   variant?: "hero" | "page" | "banner";
