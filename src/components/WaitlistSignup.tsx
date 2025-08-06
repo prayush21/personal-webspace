@@ -46,7 +46,7 @@ const WaitlistSignup: React.FC<WaitlistSignupProps> = ({
       if (response.ok) {
         setStatus("success");
         setMessage("Thanks! You're on the list 🎉");
-        setEmail("");
+        // Keep the email in the input field - don't clear it
       } else {
         throw new Error("Form submission failed");
       }
@@ -96,7 +96,7 @@ const WaitlistSignup: React.FC<WaitlistSignupProps> = ({
         </div>
 
         <div className="flex-1 relative">
-          <EnvelopeIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-neutral-600 dark:text-dark-text-secondary" />
+          <EnvelopeIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 !text-neutral-600 dark:!text-dark-text-secondary transition-colors duration-200 z-10" />
           <input
             type="email"
             name="email"
@@ -104,7 +104,7 @@ const WaitlistSignup: React.FC<WaitlistSignupProps> = ({
             onChange={(e) => setEmail(e.target.value)}
             placeholder={placeholder}
             disabled={status === "loading" || status === "success"}
-            className="w-full pl-10 pr-4 py-3 rounded-lg border border-neutral-300 dark:border-neutral-600 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-dark-text-primary placeholder-light-text-secondary dark:placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-light-highlight dark:focus:ring-dark-accent focus:border-transparent transition-all duration-200"
+            className="w-full pl-10 pr-4 py-3 rounded-lg border-2 border-neutral-300/20 dark:border-neutral-600/20 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-dark-text-primary placeholder-light-text-secondary dark:placeholder-dark-text-secondary focus:outline-none focus:ring-2 focus:ring-light-highlight dark:focus:ring-dark-accent focus:border-transparent transition-all duration-200 shadow-lg hover:shadow-xl disabled:opacity-75"
             required
           />
         </div>
@@ -112,7 +112,16 @@ const WaitlistSignup: React.FC<WaitlistSignupProps> = ({
         <button
           type="submit"
           disabled={status === "loading" || status === "success"}
-          className="w-auto px-6 py-3 bg-light-highlight dark:bg-dark-accent text-white rounded-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-light-highlight dark:focus:ring-dark-accent focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed font-medium flex items-center justify-start border border-light-highlight dark:border-dark-accent"
+          className={`w-auto px-6 py-3 font-medium flex items-center justify-center gap-2 rounded-lg focus:outline-none transition-all duration-200 ${
+            status === "success"
+              ? // Success state - elevated like normal but disabled
+                "bg-light-highlight dark:bg-dark-accent text-white shadow-lg border-2 border-light-highlight/80 dark:border-dark-accent/80 cursor-not-allowed"
+              : status === "loading"
+              ? // Loading state - slightly pressed
+                "bg-light-highlight dark:bg-dark-accent text-white shadow-md border-2 border-light-highlight/90 dark:border-dark-accent/90 translate-y-0.5"
+              : // Normal state - keyboard key with depth
+                "bg-light-highlight dark:bg-dark-accent text-white shadow-lg border-2 border-light-highlight/20 dark:border-dark-accent/20 hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-inner focus:ring-2 focus:ring-light-highlight dark:focus:ring-dark-accent focus:ring-offset-2"
+          }`}
         >
           {status === "loading" ? (
             <>
@@ -121,11 +130,12 @@ const WaitlistSignup: React.FC<WaitlistSignupProps> = ({
             </>
           ) : status === "success" ? (
             <>
-              <CheckCircleIcon className="h-5 w-5" />
               <span>Joined!</span>
             </>
           ) : (
-            "Join!"
+            <>
+              <span>Join!</span>
+            </>
           )}
         </button>
       </form>
@@ -133,9 +143,7 @@ const WaitlistSignup: React.FC<WaitlistSignupProps> = ({
       {message && (
         <div
           className={`mt-3 text-sm ${
-            status === "success"
-              ? "text-green-600 dark:text-green-400"
-              : "text-red-600 dark:text-red-400"
+            status === "success" ? "" : "text-red-600 dark:text-red-400"
           }`}
         >
           {message}

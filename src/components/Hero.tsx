@@ -4,7 +4,7 @@ import WaitlistSignup from "./WaitlistSignup";
 
 const Hero: React.FC = () => (
   <section className="text-start">
-    <h1 className="text-4xl md:text-6xl font-bold text-light-text-primary dark:text-dark-text-primary">
+    <h1 className="text-4xl md:text-5xl font-bold text-light-text-primary dark:text-dark-text-primary">
       Hey,
       <br /> I am Prayush!
       <span role="img" aria-label="waving hand">
