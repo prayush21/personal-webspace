@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,10 +10,10 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { getAssetPath } from "@/utils/paths";
+import { useTheme } from "./SimpleThemeProvider";
 
 interface NavbarProps {
-  darkMode: boolean;
-  onToggleTheme: () => void;
+  // No longer need theme props - using context
 }
 
 const navLinks = [
@@ -20,8 +22,9 @@ const navLinks = [
   // { name: "IMDP", href: "/imdp" },
 ];
 
-const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
+const Navbar: React.FC<NavbarProps> = () => {
   const [open, setOpen] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
 
   return (
     <>
@@ -44,10 +47,10 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
         {/* Top Right - Theme Toggle */}
         <div className="absolute top-10 right-16 pointer-events-auto">
           <button
-            onClick={onToggleTheme}
+            onClick={toggleTheme}
             className="p-3 rounded-full bg-light-background/80 dark:bg-dark-background/80 hover:bg-light-background/90 dark:hover:bg-dark-background/90 transition-colors duration-200 backdrop-blur-sm border border-neutral-200 dark:border-neutral-700 shadow-lg"
           >
-            {darkMode ? (
+            {isDark ? (
               <SunIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
             ) : (
               <MoonIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
@@ -134,10 +137,10 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, onToggleTheme }) => {
           </button>
           <div className="flex gap-2">
             <button
-              onClick={onToggleTheme}
+              onClick={toggleTheme}
               className="p-2 rounded-full bg-lightBackground/80 dark:bg-darkBackground/80 hover:bg-lightBackground/90 dark:hover:bg-darkBackground/90 transition-colors duration-200"
             >
-              {darkMode ? (
+              {isDark ? (
                 <SunIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
               ) : (
                 <MoonIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />

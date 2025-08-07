@@ -3,6 +3,7 @@ import { Architects_Daughter } from "next/font/google";
 import localFont from "next/font/local";
 import { Suspense } from "react";
 import "./globals.css";
+import { ClientWrapper } from "../components/ClientWrapper";
 import WaitlistModalProvider from "../components/WaitlistModalProvider";
 
 const draftingMono = localFont({
@@ -179,11 +180,13 @@ export default function RootLayout({
       className={`${draftingMono.variable} ${architectsDaughter.variable} font-sans`}
     >
       <body>
-        <SvgSprite />
-        {children}
-        <Suspense fallback={null}>
-          <WaitlistModalProvider />
-        </Suspense>
+        <ClientWrapper>
+          <SvgSprite />
+          {children}
+          <Suspense fallback={null}>
+            <WaitlistModalProvider />
+          </Suspense>
+        </ClientWrapper>
       </body>
     </html>
   );

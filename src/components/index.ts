@@ -5,6 +5,10 @@ export { default as Hero } from "./Hero";
 export { default as Navbar } from "./Navbar";
 export { default as ProjectCard } from "./ProjectCard";
 export { default as ThemeTransition } from "./ThemeTransition";
+export {
+  SimpleThemeProvider as ThemeProvider,
+  useTheme,
+} from "./SimpleThemeProvider";
 export { default as WaitlistModal } from "./WaitlistModal";
 export { default as WaitlistModalProvider } from "./WaitlistModalProvider";
 export { default as WaitlistSignup } from "./WaitlistSignup";

@@ -1,24 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { BackgroundGrid, Navbar, ProjectCard } from "@/components";
 import { projects } from "@/utils/projects";
 
 const WorksPage: React.FC = () => {
-  // Theme toggle state to match the home page pattern
-  const [darkMode, setDarkMode] = useState<boolean>(false);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
-
   return (
     <div className="relative min-h-screen overflow-hidden">
       <BackgroundGrid />
-      <Navbar
-        darkMode={darkMode}
-        onToggleTheme={() => setDarkMode(!darkMode)}
-      />
+      <Navbar />
 
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         {/* Title Section */}

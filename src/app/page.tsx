@@ -1,39 +1,17 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
 
-import {
-  BackgroundGrid,
-  Navbar,
-  Hero,
-  DynamicTicker,
-  //ThemeTransition,
-} from "@/components";
+import { BackgroundGrid, Navbar, Hero, DynamicTicker } from "@/components";
 import { getAssetPath } from "@/utils/paths";
 
-// const navLinks = [
-//   { name: "About", href: "/about" },
-//   { name: "Works", href: "/works" },
-// ];
-
 const HomePage: React.FC = () => {
-  // simple theme toggle state; apply 'dark' class on <html>
-  const [darkMode, setDarkMode] = useState<boolean>(false);
-  // const [showNav, setShowNav] = useState<boolean>(false);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
-
   return (
     <div className="relative min-h-screen overflow-hidden">
       <BackgroundGrid />
       {/* <ThemeTransition darkMode={darkMode} /> */}
-      <Navbar
-        darkMode={darkMode}
-        onToggleTheme={() => setDarkMode(!darkMode)}
-      />
+      <Navbar />
 
       {/* Rectangle Corner Layout for large screens */}
       <div className="hidden lg:block fixed inset-0 pointer-events-none z-30">
