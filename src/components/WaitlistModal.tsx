@@ -34,11 +34,11 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
 
   const handleSuccess = () => {
     setShowSuccess(true);
-    // Auto close after 2 seconds
+    // Auto close after 12 seconds
     setTimeout(() => {
       onClose();
       setShowSuccess(false);
-    }, 4000);
+    }, 12000);
   };
 
   if (!isOpen) return null;
