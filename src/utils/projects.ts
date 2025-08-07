@@ -12,7 +12,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "Connect - a collaborative word game",
+    title: "Connect - a collaborative word game (MVP)",
     screenshotSrc: getAssetPath("/assets/connect-screenshot.png"),
     demoUrl: "https://connect-38fe1.web.app/",
     repoUrl: "https://github.com/prayush21/connect-a-fun-social-game",

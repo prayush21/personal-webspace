@@ -57,7 +57,7 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b border-light-border dark:border-dark-border">
             <h2 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary">
-              Play Connect!🚀
+              Play Connect! 🎮
             </h2>
             <button
               onClick={onClose}
@@ -72,19 +72,20 @@ const WaitlistModal: React.FC<WaitlistModalProps> = ({ isOpen, onClose }) => {
           <div className="p-6">
             {showSuccess ? (
               <div className="text-center py-8">
-                <div className="text-6xl mb-4">⚡️</div>
-                <h3 className="text-2xl font-bold text-light-text-primary dark:text-dark-text-primary mb-2">
-                  Superr!
-                </h3>
+                <div className="text-3xl mb-4">Word up! You&apos;re in.</div>
+                {/* <h3 className="text-3xl font-bold text-light-text-primary dark:text-dark-text-primary mb-2">
+                  Word up! You&apos;re in.
+                </h3> */}
                 <p className="text-light-text-secondary dark:text-dark-text-secondary">
-                  More updates soon!
+                  Prepare for some friendly (and maybe not-so-friendly)
+                  competition soon! 🚀
                 </p>
               </div>
             ) : (
               <div>
                 <p className="text-lg text-light-text-secondary dark:text-dark-text-secondary mb-6 text-center">
-                  Want to try out a new collaborative word game? Join the
-                  mailing list!
+                  Think you&apos;re the fastest with words? Get early access and
+                  challenge your friends!
                 </p>
 
                 <WaitlistSignup
