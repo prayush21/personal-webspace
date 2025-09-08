@@ -179,6 +179,13 @@ export default function RootLayout({
       lang="en"
       className={`${draftingMono.variable} ${architectsDaughter.variable} font-sans`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');console.log('Blocking script - theme:',t);if(t==='dark'){document.documentElement.classList.add('dark');console.log('Added dark class');}}catch(e){console.error('Blocking script error:',e);}})();`,
+          }}
+        />
+      </head>
       <body>
         <ClientWrapper>
           <SvgSprite />

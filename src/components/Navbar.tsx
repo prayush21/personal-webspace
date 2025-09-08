@@ -24,7 +24,22 @@ const navLinks = [
 
 const Navbar: React.FC<NavbarProps> = () => {
   const [open, setOpen] = useState(false);
-  const { isDark, toggleTheme } = useTheme();
+  const { isDark, toggleTheme, isHydrated } = useTheme();
+
+  // Get the actual theme state from DOM/localStorage during hydration
+  const getActualThemeState = () => {
+    if (typeof window === "undefined") return false;
+
+    // Check localStorage first
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") return true;
+
+    // Fallback to DOM class
+    return document.documentElement.classList.contains("dark");
+  };
+
+  // Use actual theme state if not hydrated yet, otherwise use context state
+  const displayIsDark = isHydrated ? isDark : getActualThemeState();
 
   return (
     <>
@@ -50,7 +65,7 @@ const Navbar: React.FC<NavbarProps> = () => {
             onClick={toggleTheme}
             className="p-3 rounded-full bg-light-background/80 dark:bg-dark-background/80 hover:bg-light-background/90 dark:hover:bg-dark-background/90 transition-colors duration-200 backdrop-blur-sm border border-neutral-200 dark:border-neutral-700 shadow-lg"
           >
-            {isDark ? (
+            {displayIsDark ? (
               <SunIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
             ) : (
               <MoonIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
@@ -140,7 +155,7 @@ const Navbar: React.FC<NavbarProps> = () => {
               onClick={toggleTheme}
               className="p-2 rounded-full bg-lightBackground/80 dark:bg-darkBackground/80 hover:bg-lightBackground/90 dark:hover:bg-darkBackground/90 transition-colors duration-200"
             >
-              {isDark ? (
+              {displayIsDark ? (
                 <SunIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
               ) : (
                 <MoonIcon className="h-6 w-6 text-lightAccent dark:text-darkAccent" />
