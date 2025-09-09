@@ -16,10 +16,12 @@ interface NavbarProps {
   // No longer need theme props - using context
 }
 
-const navLinks = [
+type NavLink = { name: string; href: string; isNew?: boolean };
+
+const navLinks: NavLink[] = [
   { name: "About", href: "/about" },
   { name: "Works", href: "/works" },
-  // { name: "IMDP", href: "/imdp" },
+  { name: "Video", href: "/video", isNew: true },
 ];
 
 const Navbar: React.FC<NavbarProps> = () => {
@@ -82,7 +84,14 @@ const Navbar: React.FC<NavbarProps> = () => {
                 href={link.href}
                 className="text-light-text-secondary dark:text-dark-text-secondary hover:text-light-text-primary dark:hover:text-dark-text-primary transition-colors duration-200"
               >
-                {link.name}
+                <span className="inline-flex items-center gap-2">
+                  {link.name}
+                  {link.isNew && (
+                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-orange-500 text-white dark:bg-dark-accent">
+                      New
+                    </span>
+                  )}
+                </span>
               </Link>
             ))}
           </nav>
@@ -133,7 +142,14 @@ const Navbar: React.FC<NavbarProps> = () => {
                   href={link.href}
                   className="hover:text-lightTextPrimary dark:hover:text-darkTextPrimary cursor-pointer transition-colors duration-200"
                 >
-                  {link.name}
+                  <span className="inline-flex items-center gap-2">
+                    {link.name}
+                    {link.isNew && (
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-light-accent text-white dark:bg-dark-accent">
+                        New
+                      </span>
+                    )}
+                  </span>
                 </Link>
               </li>
             ))}
@@ -217,7 +233,14 @@ const Navbar: React.FC<NavbarProps> = () => {
                       className="hover:text-lightTextPrimary dark:hover:text-darkTextPrimary cursor-pointer text-lg transition-colors duration-200 block"
                       onClick={() => setOpen(false)}
                     >
-                      {link.name}
+                      <span className="inline-flex items-center gap-2">
+                        {link.name}
+                        {link.isNew && (
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-light-accent text-white dark:bg-dark-accent">
+                            New
+                          </span>
+                        )}
+                      </span>
                     </Link>
                   </li>
                 ))}
