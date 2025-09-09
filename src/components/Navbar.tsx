@@ -145,7 +145,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                   <span className="inline-flex items-center gap-2">
                     {link.name}
                     {link.isNew && (
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-light-accent text-white dark:bg-dark-accent">
+                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-orange-500 text-white dark:bg-dark-accent">
                         New
                       </span>
                     )}
@@ -236,7 +236,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                       <span className="inline-flex items-center gap-2">
                         {link.name}
                         {link.isNew && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-light-accent text-white dark:bg-dark-accent">
+                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-orange-500 text-white dark:bg-dark-accent">
                             New
                           </span>
                         )}
