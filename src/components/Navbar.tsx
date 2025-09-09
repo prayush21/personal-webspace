@@ -21,7 +21,7 @@ type NavLink = { name: string; href: string; isNew?: boolean };
 const navLinks: NavLink[] = [
   { name: "About", href: "/about" },
   { name: "Works", href: "/works" },
-  { name: "Video", href: "/video", isNew: true },
+  { name: "Summer", href: "/video", isNew: true },
 ];
 
 const Navbar: React.FC<NavbarProps> = () => {
@@ -87,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                 <span className="inline-flex items-center gap-2">
                   {link.name}
                   {link.isNew && (
-                    <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-orange-500 text-white dark:bg-dark-accent">
+                    <span className="text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded-full bg-orange-500 text-white dark:bg-orange-600 leading-none">
                       New
                     </span>
                   )}
@@ -145,7 +145,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                   <span className="inline-flex items-center gap-2">
                     {link.name}
                     {link.isNew && (
-                      <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-orange-500 text-white dark:bg-dark-accent">
+                      <span className="text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded-full bg-orange-500 text-white dark:bg-orange-600 leading-none">
                         New
                       </span>
                     )}
@@ -236,7 +236,7 @@ const Navbar: React.FC<NavbarProps> = () => {
                       <span className="inline-flex items-center gap-2">
                         {link.name}
                         {link.isNew && (
-                          <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-orange-500 text-white dark:bg-dark-accent">
+                          <span className="text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded-full bg-orange-500 text-white dark:bg-orange-600 leading-none">
                             New
                           </span>
                         )}

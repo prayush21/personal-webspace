@@ -9,7 +9,7 @@ const VideoPage: React.FC = () => {
       <BackgroundGrid />
       <Navbar />
 
-      <main className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+      <main className="relative container mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         {/* Title Section */}
         {/* <div className="text-center my-16">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-light-text dark:text-dark-text mb-4">
