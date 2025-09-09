@@ -1,7 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Architects_Daughter } from "next/font/google";
 import localFont from "next/font/local";
+import { Suspense } from "react";
 import "./globals.css";
+import { ClientWrapper } from "../components/ClientWrapper";
+import WaitlistModalProvider from "../components/WaitlistModalProvider";
 
 const draftingMono = localFont({
   src: "../assets/DraftingMono/woff2/DraftingMono-Regular.woff2",
@@ -20,6 +23,9 @@ export const metadata: Metadata = {
   title: "Prayush here!👋",
   icons: {
     icon: [
+      // Default favicon (fallback)
+      "/favicon.ico",
+      // Light theme favicons
       {
         url: "/favicon_light/favicon-32x32.png",
         sizes: "32x32",
@@ -40,24 +46,40 @@ export const metadata: Metadata = {
         sizes: "512x512",
         media: "(prefers-color-scheme: light)",
       },
+      // Dark theme favicons
       {
-        url: "/favicon_light/favicon.ico",
-        media: "(prefers-color-scheme: light)",
+        url: "/favicon_dark/favicon-32x32.png",
+        sizes: "32x32",
+        media: "(prefers-color-scheme: dark)",
       },
-      // { url: '/favicon_dark/favicon-32x32.png', sizes: '32x32', media: '(prefers-color-scheme: dark)' },
-      // { url: '/favicon_dark/favicon-16x16.png', sizes: '16x16', media: '(prefers-color-scheme: dark)' },
-      // { url: '/favicon_dark/android-chrome-192x192.png', sizes: '192x192', media: '(prefers-color-scheme: dark)' },
-      // { url: '/favicon_dark/android-chrome-512x512.png', sizes: '512x512', media: '(prefers-color-scheme: dark)' },
-      // { url: '/favicon_dark/favicon.ico', media: '(prefers-color-scheme: dark)' },
+      {
+        url: "/favicon_dark/favicon-16x16.png",
+        sizes: "16x16",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/favicon_dark/android-chrome-192x192.png",
+        sizes: "192x192",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/favicon_dark/android-chrome-512x512.png",
+        sizes: "512x512",
+        media: "(prefers-color-scheme: dark)",
+      },
     ],
     apple: [
       {
         url: "/favicon_light/apple-touch-icon.png",
         media: "(prefers-color-scheme: light)",
       },
-      // { url: '/favicon_dark/apple-touch-icon.png', media: '(prefers-color-scheme: dark)' },
+      {
+        url: "/favicon_dark/apple-touch-icon.png",
+        media: "(prefers-color-scheme: dark)",
+      },
     ],
   },
+  manifest: "/favicon_light/site.webmanifest",
 };
 
 export const viewport: Viewport = {
@@ -157,9 +179,21 @@ export default function RootLayout({
       lang="en"
       className={`${draftingMono.variable} ${architectsDaughter.variable} font-sans`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');console.log('Blocking script - theme:',t);if(t==='dark'){document.documentElement.classList.add('dark');console.log('Added dark class');}}catch(e){console.error('Blocking script error:',e);}})();`,
+          }}
+        />
+      </head>
       <body>
-        <SvgSprite />
-        {children}
+        <ClientWrapper>
+          <SvgSprite />
+          {children}
+          <Suspense fallback={null}>
+            <WaitlistModalProvider />
+          </Suspense>
+        </ClientWrapper>
       </body>
     </html>
   );

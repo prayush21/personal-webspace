@@ -12,7 +12,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "Connect - a collaborative word game",
+    title: "Connect - a collaborative word game (MVP)",
     screenshotSrc: getAssetPath("/assets/connect-screenshot.png"),
     demoUrl: "https://connect-38fe1.web.app/",
     repoUrl: "https://github.com/prayush21/connect-a-fun-social-game",
@@ -20,7 +20,7 @@ export const projects: Project[] = [
   },
   {
     id: "2",
-    title: "Cricket Era Dashboard",
+    title: "Cricket D3 (Dismissal Distribution Dashboard)",
     screenshotSrc: getAssetPath("/assets/cricket-tera-dashboard.png"),
     repoUrl: "https://github.com/prayush21/cricket-tera",
     tags: ["Python", "Data Analysis & Visualization", "PostgresDB"],

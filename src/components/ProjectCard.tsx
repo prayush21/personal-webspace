@@ -17,7 +17,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           alt=""
           width={48}
           height={24}
-          className="w-full h-full transform -rotate-2"
+          className="w-full h-full transform -rotate-45"
         />
       </div>
       <div className="absolute -bottom-2 -right-2 w-12 h-6 pointer-events-none motion-safe:group-hover:rotate-[4deg] transition-transform duration-300 z-10">
@@ -26,7 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           alt=""
           width={48}
           height={24}
-          className="w-full h-full transform rotate-3"
+          className="w-full h-full transform -rotate-45"
         />
       </div>
 

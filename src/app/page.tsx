@@ -1,50 +1,45 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Image from "next/image";
-import {
-  BackgroundGrid,
-  Navbar,
-  Hero,
-  DynamicTicker,
-  //ThemeTransition,
-} from "@/components";
+
+import { BackgroundGrid, Navbar, Hero, DynamicTicker } from "@/components";
 import { getAssetPath } from "@/utils/paths";
 
 const HomePage: React.FC = () => {
-  // simple theme toggle state; apply 'dark' class on <html>
-  const [darkMode, setDarkMode] = useState<boolean>(false);
-  useEffect(() => {
-    document.documentElement.classList.toggle("dark", darkMode);
-  }, [darkMode]);
-
   return (
     <div className="relative min-h-screen overflow-hidden">
       <BackgroundGrid />
       {/* <ThemeTransition darkMode={darkMode} /> */}
-      <Navbar
-        darkMode={darkMode}
-        onToggleTheme={() => setDarkMode(!darkMode)}
-      />
+      <Navbar />
+
+      {/* Rectangle Corner Layout for large screens */}
+      <div className="hidden lg:block fixed inset-0 pointer-events-none z-30">
+        {/* Bottom Left - DynamicTicker */}
+        <div className="absolute bottom-10 left-10 pointer-events-auto">
+          <DynamicTicker />
+        </div>
+
+        {/* Bottom Right - Space Plane */}
+        <div className="absolute bottom-10 right-10 pointer-events-auto">
+          <Image
+            src={getAssetPath("/assets/space-plane.svg")}
+            alt="Decorative space plane"
+            width={200}
+            height={200}
+            className="h-48 w-auto transition-transform duration-200 hover:scale-105"
+          />
+        </div>
+      </div>
 
       <main className="container mx-auto px-4 min-h-[calc(100vh-4rem)] flex flex-col justify-between">
         <div className="flex-1 flex items-center justify-center">
           <Hero />
         </div>
-        <div className="mb-8 flex items-center justify-between">
+
+        {/* DynamicTicker for mobile and tablet screens */}
+        <div className="lg:hidden mb-8 flex justify-start">
           <DynamicTicker />
-          {/* <img
-            src={darkMode ? "/assets/doodle-dark.svg" : "/assets/doodle-light.svg"}
-            alt="Decorative doodle"
-            className="hidden lg:block absolute right-10 w-auto"
-          /> */}
-          <Image
-            src={getAssetPath("/assets/space-plane.svg")}
-            alt="Decorative doodle"
-            width={288}
-            height={288}
-            className="h-72 hidden lg:block absolute bottom-5 right-32 w-auto border-white shad"
-          />
         </div>
       </main>
     </div>
