@@ -21,18 +21,6 @@ const ContentPage: React.FC = () => {
           </p>
         </div>
 
-        {/* Profile Stats (Instagram-style) */}
-        <div className="flex justify-center gap-8 sm:gap-12 mb-10 md:mb-14">
-          <div className="text-center">
-            <span className="block text-2xl sm:text-3xl font-bold text-light-text dark:text-dark-text">
-              {videos.length}
-            </span>
-            <span className="text-sm sm:text-base text-light-textSecondary dark:text-dark-textSecondary">
-              videos
-            </span>
-          </div>
-        </div>
-
         {/* Video Grid */}
         <div className="max-w-6xl mx-auto">
           <VideoGrid videos={videos} />
