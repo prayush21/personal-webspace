@@ -12,14 +12,22 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "Connect - a collaborative word game (MVP)",
+    title: "Connect Signull - a multiplayer word game",
+    screenshotSrc: getAssetPath("/assets/connect-screenshot.png"),
+    demoUrl: "https://connect-signull.vercel.app/",
+    repoUrl: "https://github.com/prayush21/connect-a-fun-social-game",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    id: "2",
+    title: "Connect - a collaborative word game (Prototype)",
     screenshotSrc: getAssetPath("/assets/connect-screenshot.png"),
     demoUrl: "https://connect-38fe1.web.app/",
     repoUrl: "https://github.com/prayush21/connect-a-fun-social-game",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
-    id: "2",
+    id: "3",
     title: "Cricket D3 (Dismissal Distribution Dashboard)",
     screenshotSrc: getAssetPath("/assets/cricket-tera-dashboard.png"),
     repoUrl: "https://github.com/prayush21/cricket-tera",
@@ -34,7 +42,7 @@ export const projects: Project[] = [
     tags: ["Creative Coding", "Typescript", "React"],
   },
   {
-    id: "3",
+    id: "5",
     title: "Weather Dashboard",
     screenshotSrc: getAssetPath("/assets/weather-app-ss.png"),
     demoUrl: "https://weather-app-zeta-silk-68.vercel.app/",
