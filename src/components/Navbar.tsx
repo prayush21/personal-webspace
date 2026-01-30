@@ -20,8 +20,9 @@ type NavLink = { name: string; href: string; isNew?: boolean };
 
 const navLinks: NavLink[] = [
   { name: "About", href: "/about" },
-  { name: "Works", href: "/works" },
-  { name: "Summer", href: "/video", isNew: true },
+  { name: "Projects", href: "/projects" },
+  { name: "Content", href: "/content" },
+  { name: "Summer'25", href: "/video" },
 ];
 
 const Navbar: React.FC<NavbarProps> = () => {

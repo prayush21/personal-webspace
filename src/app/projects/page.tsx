@@ -4,7 +4,7 @@ import React from "react";
 import { BackgroundGrid, Navbar, ProjectCard } from "@/components";
 import { projects } from "@/utils/projects";
 
-const WorksPage: React.FC = () => {
+const ProjectsPage: React.FC = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
       <BackgroundGrid />
@@ -14,11 +14,11 @@ const WorksPage: React.FC = () => {
         {/* Title Section */}
         <div className="text-center my-16">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-sans font-bold text-light-text dark:text-dark-text mb-4">
-            Works
+            Projects
           </h1>
           <p className="text-lg sm:text-xl text-light-textSecondary dark:text-dark-textSecondary max-w-2xl mx-auto">
-            A collection of projects that showcase my passion for creating
-            meaningful digital experiences.
+            A limited collection of projects that showcase my passion for
+            creating meaningful digital experiences.
           </p>
         </div>
 
@@ -33,4 +33,4 @@ const WorksPage: React.FC = () => {
   );
 };
 
-export default WorksPage;
+export default ProjectsPage;
