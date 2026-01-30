@@ -13,7 +13,7 @@ export const projects: Project[] = [
   {
     id: "1",
     title: "Connect Signull - a multiplayer word game",
-    screenshotSrc: getAssetPath("/assets/connect-signull-2.png"),
+    screenshotSrc: getAssetPath("/assets/connect-signull-3.png"),
     demoUrl: "https://connect-signull.vercel.app/",
     repoUrl: "https://github.com/prayush21/connect-a-fun-social-game",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
@@ -29,7 +29,7 @@ export const projects: Project[] = [
   {
     id: "3",
     title: "Netflix-like Video Player Chrome Extension",
-    screenshotSrc: getAssetPath("/assets/netflix-chrome-extension.png"),
+    screenshotSrc: getAssetPath("/assets/n-player-logo.png"),
     demoUrl:
       "https://chromewebstore.google.com/detail/hglkjjlgpdiaohggjagghfnmihmdljoi?utm_source=item-share-cb",
     repoUrl: "https://github.com/prayush21/video-player-chrome-extension",
