@@ -13,7 +13,7 @@ export const projects: Project[] = [
   {
     id: "1",
     title: "Connect Signull - a multiplayer word game",
-    screenshotSrc: getAssetPath("/assets/connect-screenshot.png"),
+    screenshotSrc: getAssetPath("/assets/connect-signull-2.png"),
     demoUrl: "https://connect-signull.vercel.app/",
     repoUrl: "https://github.com/prayush21/connect-a-fun-social-game",
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
