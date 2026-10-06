@@ -21,6 +21,7 @@ type NavLink = { name: string; href: string; isNew?: boolean };
 const navLinks: NavLink[] = [
   { name: "About", href: "/about" },
   { name: "Projects", href: "/projects" },
+  { name: "Experience", href: "/experience" },
   { name: "Content", href: "/content" },
   { name: "Summer'25", href: "/video" },
 ];
